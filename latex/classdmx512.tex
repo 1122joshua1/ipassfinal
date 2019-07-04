@@ -1,0 +1,54 @@
+\hypertarget{classdmx512}{}\section{dmx512 Class Reference}
+\label{classdmx512}\index{dmx512@{dmx512}}
+
+
+implements the hardware U\+S\+A\+RT for dmx and implements fixture patching  
+
+
+
+
+{\ttfamily \#include $<$library.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdmx512_a6a1e026d2dfd58fe54f98fa8dfa27303}\label{classdmx512_a6a1e026d2dfd58fe54f98fa8dfa27303}} 
+\hyperlink{classdmx512_a6a1e026d2dfd58fe54f98fa8dfa27303}{dmx512} (bool mode)
+\begin{DoxyCompactList}\small\item\em mode is reserved for future implementation, use 0 for now \end{DoxyCompactList}\item 
+void \hyperlink{classdmx512_afcbc9b157dfebd6c35795738641761e9}{senddata} (std\+::array$<$ int, 512 $>$ data, int grootte)
+\begin{DoxyCompactList}\small\item\em send an array of ints over dmx \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classdmx512_a1d9cbfe77c6db4d1e0808ba6abede7a2}\label{classdmx512_a1d9cbfe77c6db4d1e0808ba6abede7a2}} 
+void \hyperlink{classdmx512_a1d9cbfe77c6db4d1e0808ba6abede7a2}{fixtureout} ()
+\begin{DoxyCompactList}\small\item\em output the values stored in the patched fixtures over the dmx \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classdmx512_a6a6dca3c6513b17fa73426891b82fd05}\label{classdmx512_a6a6dca3c6513b17fa73426891b82fd05}} 
+int \hyperlink{classdmx512_a6a6dca3c6513b17fa73426891b82fd05}{addtopatch} (\hyperlink{classmoving}{moving} lamp, int start)
+\begin{DoxyCompactList}\small\item\em add a fixture to the patch, returns the id which from hereonafter will be used to identify the fixure in te patch \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classdmx512_a0c31875d2fed8d85cf5091f30eddd697}\label{classdmx512_a0c31875d2fed8d85cf5091f30eddd697}} 
+void \hyperlink{classdmx512_a0c31875d2fed8d85cf5091f30eddd697}{updatefixture} (\hyperlink{classmoving}{moving} lamp, int number)
+\begin{DoxyCompactList}\small\item\em overrides the fixture of the given id, usually used to get new data into the fixture \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+implements the hardware U\+S\+A\+RT for dmx and implements fixture patching 
+
+the \hyperlink{classdmx512}{dmx512} class implements all the hardware functions to correctly use a max485 chip to communicate with dmx capable fixtures. it uses the hardware U\+S\+A\+R\+T0 on the arduino Due for this, at a baudrate of 250\+Kbaud
+
+primary usage is by telling it on which channels you have fixtures, and then updating the fixtures, when used in this way, make shure to call \hyperlink{classdmx512_a1d9cbfe77c6db4d1e0808ba6abede7a2}{fixtureout()} atleast once a second, as this is what actually puts data on the bus and the dmx specefecation specifies at least 1 packet per second 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classdmx512_afcbc9b157dfebd6c35795738641761e9}\label{classdmx512_afcbc9b157dfebd6c35795738641761e9}} 
+\index{dmx512@{dmx512}!senddata@{senddata}}
+\index{senddata@{senddata}!dmx512@{dmx512}}
+\subsubsection{\texorpdfstring{senddata()}{senddata()}}
+{\footnotesize\ttfamily void dmx512\+::senddata (\begin{DoxyParamCaption}\item[{std\+::array$<$ int, 512 $>$}]{data,  }\item[{int}]{grootte }\end{DoxyParamCaption})}
+
+
+
+send an array of ints over dmx 
+
+the ints wil be sent, with the position in the array determening the adress\mbox{[}0 being adress 1\mbox{]}; each int shall be positve and no higher then 255, as dmx is an 8 bit standard and thus only accepts values up to 255, the int grootte tells the program how many bytes you want to send out. you may not send out more then 512 bytes in one packet. hwlib\+::wait\+\_\+us(50); 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+library.\+hpp\item 
+library.\+cpp\end{DoxyCompactItemize}

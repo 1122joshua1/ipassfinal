@@ -1,0 +1,58 @@
+\hypertarget{classmoving}{}\section{moving Class Reference}
+\label{classmoving}\index{moving@{moving}}
+
+
+implements the lixada 25w moving head beam light  
+
+
+
+
+{\ttfamily \#include $<$library.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmoving_a63b60a19c43790fe98f11efea47f92bb}\label{classmoving_a63b60a19c43790fe98f11efea47f92bb}} 
+void \hyperlink{classmoving_a63b60a19c43790fe98f11efea47f92bb}{nextelement} ()
+\begin{DoxyCompactList}\small\item\em this cycles trough the values which can be edited using changecur \end{DoxyCompactList}\item 
+void \hyperlink{classmoving_ae1d3737dbfcf7d8e484d8e79c62ae7c4}{changecur} (int waarde)
+\begin{DoxyCompactList}\small\item\em edit currently selected field \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmoving_a662632566973c21929829c538ed3a135}\label{classmoving_a662632566973c21929829c538ed3a135}} 
+void \hyperlink{classmoving_a662632566973c21929829c538ed3a135}{sendstream} (int pan, int tilt, int color, int dim)
+\begin{DoxyCompactList}\small\item\em alows you to send pan, tilt, color and dim values which will override the current values stored in the object \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmoving_a1c9ef53c238d2cbdd5e0fe4ca1d4c6b9}\label{classmoving_a1c9ef53c238d2cbdd5e0fe4ca1d4c6b9}} 
+void \hyperlink{classmoving_a1c9ef53c238d2cbdd5e0fe4ca1d4c6b9}{strobestart} ()
+\begin{DoxyCompactList}\small\item\em starts strobing the light. will reset any set value in field 4(shutter) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmoving_ab61d7e76fc4fb599d0411d9ea0e2bd88}\label{classmoving_ab61d7e76fc4fb599d0411d9ea0e2bd88}} 
+void \hyperlink{classmoving_ab61d7e76fc4fb599d0411d9ea0e2bd88}{strobestop} ()
+\begin{DoxyCompactList}\small\item\em stops strobing the light will. reset any set value in field 4(shutter) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmoving_ad452cf6ae878aaba449cab79e48a0f62}\label{classmoving_ad452cf6ae878aaba449cab79e48a0f62}} 
+class {\bfseries dmx512}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+implements the lixada 25w moving head beam light 
+
+the class moving is a class which is made to seamlessly intergrate the lixada 25w beam moving head light. it has the channle proofile of this fixture already built in , it also has a way to interface with the fixture using 1 button and 1 potentiometer 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmoving_ae1d3737dbfcf7d8e484d8e79c62ae7c4}\label{classmoving_ae1d3737dbfcf7d8e484d8e79c62ae7c4}} 
+\index{moving@{moving}!changecur@{changecur}}
+\index{changecur@{changecur}!moving@{moving}}
+\subsubsection{\texorpdfstring{changecur()}{changecur()}}
+{\footnotesize\ttfamily void moving\+::changecur (\begin{DoxyParamCaption}\item[{int}]{waarde }\end{DoxyParamCaption})}
+
+
+
+edit currently selected field 
+
+edit the field selected with nextelement. waarde should be positive and no more than 255 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+library.\+hpp\item 
+library.\+cpp\end{DoxyCompactItemize}
